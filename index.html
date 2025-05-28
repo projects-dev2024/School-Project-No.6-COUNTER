@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+  
+        .screen {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 3px black solid;
+            border-radius: 10px;
+            margin: 25px;
+            padding: 10px;
+            height: 70px;
+            width: 100px;
+            font-size: 40px;
+        }
+        .end:hover, .start:hover {
+            height: 40px;
+            width: 60px;
+            border: 3px red solid;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+        <div class="container">
+            <div class="screen">0</div>
+            <button class="start">Start</button>
+            <button class="end">End</button>
+        </div>
+        <script>
+            const screen = document.querySelector(".screen")
+            const start = document.querySelector(".start")
+            const end = document.querySelector(".end")
+            let count = 0
+            let startInterval;
+            start.addEventListener("click", () => {
+                clearInterval(startInterval)
+                startInterval = setInterval(() => {
+                    count ++
+                    screen.textContent = count
+                }, 1000)
+            })
+            end.addEventListener("click", () => {
+                clearInterval(startInterval)
+                alert(`COUNT: ${count}`)
+            })
+    </script>
+</body>
+</html>
